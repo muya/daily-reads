@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Daily Reads</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/1-col-portfolio.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Daily Reads!</h2>
+    {% for article in articles %}
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#">
+                <img src="{{ article.img }}" alt="" class="img-responsive">
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3>{{ article.text }}</h3>
+            <p>{{ article.text.decode("utf-8") }}</p>
+            <a href="{{ article.story_url }}" class="btn btn-primary">
+                Read Full Article <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+</body>
+</html>
